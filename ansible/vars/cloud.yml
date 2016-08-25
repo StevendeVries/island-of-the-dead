@@ -1,0 +1,22 @@
+---
+server:
+    install: '1'
+    packages: [vim, htop, git]
+    timezone: UTC
+    locale: en_US.UTF-8
+nginx:
+    install: '1'
+    docroot: '{{ project_root }}/current/public'
+    servername: '{{ servername }} www.{{ servername }}'
+    ssl: false
+sqlite:
+    install: '1'
+php:
+    install: '1'
+    ppa: php5-5.6
+    packages: [php5-cli, php5-intl, php5-mcrypt, php5-sqlite]
+composer:
+    install: '1'
+application:
+  api:
+    root: '{{ project_root }}/current/public/api'

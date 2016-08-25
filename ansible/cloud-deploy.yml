@@ -1,0 +1,19 @@
+---
+- hosts: all
+  user: "root"
+  become: true
+  vars:
+      httpd_user: root
+      organisation: wecamp
+      repo: island-of-the-dead
+      token: 8392529fbbd8620c03e7247cfcbd69c504770454
+      project_name: island-of-the-dead
+      project_root: /srv/island-of-the-dead.stevendevries.nl
+      deploy_env: remove
+      branch: deployment
+      application_root: '{{ project_root }}/releases/{{ commit_hash }}-{{ ansible_date_time.epoch }}'
+
+  roles:
+    - deploy
+    - appprod
+

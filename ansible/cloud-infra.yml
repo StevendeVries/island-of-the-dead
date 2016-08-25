@@ -1,0 +1,18 @@
+---
+- hosts: all
+  user: "root"
+  become: true
+  vars:
+      httpd_user: wecamper
+      httpd_group: wecamper
+      project_root: /srv/island-of-the-dead.stevendevries.nl
+      servername: island-of-the-dead.stevendevries.nl
+  vars_files:
+      - vars/cloud.yml
+  roles:
+    - server
+    - nginx
+    - php
+    - composer
+    - nodejs
+    - npmprod
