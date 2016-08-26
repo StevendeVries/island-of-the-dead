@@ -1,3 +1,7 @@
 - name: (dev|test|accept) Install npm packages
   sudo: false
-  command: npm install chdir="{{ project_root }}/current/public/webapp"
+  command: npm install chdir="{{ project_root }}/current/webapp"
+
+- name: Fix file rights on executable application files
+  command: find {{ application_root }}/webapp/node_modules/.bin ! \( -type d \) -exec chmod +x {} \;
+  become: true

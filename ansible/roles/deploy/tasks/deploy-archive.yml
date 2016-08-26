@@ -20,10 +20,6 @@
   command: find {{ application_root }} -type d -exec chmod 755 {} \;
   become: true
 
-- name: Fix file rights on executable application files
-  command: find {{ application_root }}/webapp/node_modules/.bin ! \( -type d \) -exec chmod +x {} \;
-  become: true
-
 - name: Create symlink to new deploy
   file:
     path: "{{ project_root }}/current"

@@ -6,7 +6,7 @@ server:
     locale: en_US.UTF-8
 nginx:
     install: '1'
-    docroot: '{{ project_root }}/current/public'
+    docroot: '{{ project_root }}/current/api/web'
     servername: '{{ servername }} www.{{ servername }}'
     ssl: false
 sqlite:
@@ -19,4 +19,4 @@ composer:
     install: '1'
 application:
   api:
-    root: '{{ project_root }}/current/public/api'
+    root: '{{ project_root }}/current/api'

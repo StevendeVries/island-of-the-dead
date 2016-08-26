@@ -15,5 +15,6 @@
 
   roles:
     - deploy
+    - npmprod
     - appprod
 

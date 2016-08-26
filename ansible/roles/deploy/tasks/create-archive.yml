@@ -12,21 +12,21 @@
     dest: "{{ local_git_clone_dir }}"
     version: "{{ commit_hash }}"
 
-#- name: Install Composer
-#  get_url: url=https://getcomposer.org/composer.phar dest="{{ local_git_clone_dir }}" mode=0555
-#
-#- name: Install project dependencies
-#  command: >
-#    php composer.phar install \
-#    --optimize-autoloader \
-#    --prefer-dist \
-#    --no-scripts \
-#    --no-dev \
-#    --ignore-platform-reqs \
-#    --no-progress \
-#    --no-interaction
-#  args:
-#    chdir: "{{ local_git_clone_dir }}/webapp"
+- name: Install Composer
+  get_url: url=https://getcomposer.org/composer.phar dest="{{ local_git_clone_dir }}/api" mode=0555
+
+- name: Install project dependencies
+  command: >
+    php composer.phar install \
+    --optimize-autoloader \
+    --prefer-dist \
+    --no-scripts \
+    --no-dev \
+    --ignore-platform-reqs \
+    --no-progress \
+    --no-interaction
+  args:
+    chdir: "{{ local_git_clone_dir }}/api"
 
 - name: Set archive name
   set_fact:
